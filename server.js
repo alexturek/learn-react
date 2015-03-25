@@ -34,7 +34,9 @@ app.post('/comments.json', function(req, res) {
     fs.writeFile('comments.json', JSON.stringify(comments, null, 4), function(err) {
       res.setHeader('Content-Type', 'application/json');
       res.setHeader('Cache-Control', 'no-cache');
-      res.send(JSON.stringify(comments));
+      setTimeout(function() {
+        res.send(JSON.stringify(comments));
+      }, 2000);
     });
   });
 });
